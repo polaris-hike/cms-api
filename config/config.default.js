@@ -22,23 +22,25 @@ module.exports = appInfo => {
   const userConfig = {
     // myAppName: 'egg',
   };
-  config.mysql = {
+  userConfig.jwtSecret = 'wuxuwei';
+  userConfig.mysql = {
     client: {
       host: 'localhost',
       port: 3306,
       user: 'root',
       password: 'root',
-      database: 'cms'
+      database: 'cms',
     },
     app: true,
     agent: false,
   };
 
-  config.security = {
+  userConfig.security = {
     csrf: {
-      enable: false
-    }
-  }
+      enable: false,
+    },
+    domainWhiteList: [ 'http://localhost:8000' ],
+  };
 
   return {
     ...config,
